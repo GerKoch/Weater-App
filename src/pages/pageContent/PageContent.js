@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { CardContent } from "../../components/cardContent/CardContent";
+import { Icons } from "../../components/icons/Icons";
 import "./PageContent.css";
 
 export const PageContent = () => {
     const [value, setValue] = useState("");
     const [search, setSearch] = useState("Argentina");
+    const [icon, setIcon] = useState("");
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
@@ -17,6 +19,7 @@ export const PageContent = () => {
                 } else {
                     console.log(res)
                     setValue(res)
+                    setIcon(res.weather[0].main)
                 }
             })
             .catch(error => console.log(error))
@@ -45,10 +48,15 @@ export const PageContent = () => {
             </div>
             <div>
                 {value ? (
-                    <CardContent
-                        key={value.id}
-                        data={value}
-                    />
+                    <>
+                        <CardContent
+                            key={value.id}
+                            data={value}
+                        />
+                        <Icons
+                            icons={icon}
+                        />
+                    </>
                 ) : (
                     <p>{"City not found"}</p>
                 )}
