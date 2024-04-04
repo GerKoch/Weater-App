@@ -6,7 +6,7 @@ import "./PageContent.css";
 export const PageContent = () => {
     const [value, setValue] = useState("");
     const [search, setSearch] = useState("Argentina");
-    const [icon, setIcon] = useState("");
+    const [iconRef, setIconRef] = useState("");
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
@@ -19,7 +19,7 @@ export const PageContent = () => {
                 } else {
                     console.log(res)
                     setValue(res)
-                    setIcon(res.weather[0].main)
+                    setIconRef(res.weather[0].main)
                 }
             })
             .catch(error => console.log(error))
@@ -36,6 +36,7 @@ export const PageContent = () => {
         }
     }
 
+
     return (
         <div className="container">
             <div className="containerInput">
@@ -46,17 +47,17 @@ export const PageContent = () => {
                     autoFocus
                 />
             </div>
-            <div>
+            <div className="card">
                 {value ? (
-                    <>
+                    <div className="cardContent">
                         <CardContent
                             key={value.id}
                             data={value}
                         />
                         <Icons
-                            icons={icon}
+                            reference={iconRef}
                         />
-                    </>
+                    </div>
                 ) : (
                     <p>{"City not found"}</p>
                 )}
