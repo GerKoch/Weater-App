@@ -1,4 +1,28 @@
+.cardIcon {
+    background-color: #fff;
+    display: flex;
+}
+
 .icon {
-    background-color:#f2f4f6;
-    width: 30%;
+    background-color: #fff;
+}
+
+.icon>img {
+    background-color:#fff;
+    width: 100%;
+}
+
+.icon>h2 {
+    margin: 0;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.text>h1 {
+    display: flex;
+    justify-content: left;
 }

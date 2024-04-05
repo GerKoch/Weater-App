@@ -35,8 +35,7 @@ export const PageContent = () => {
             setSearch(e.target.value)
         }
     }
-
-
+   
     return (
         <div className="container">
             <div className="containerInput">
@@ -52,6 +51,7 @@ export const PageContent = () => {
                     <div className="cardContent">
                         <Icons
                             reference={iconRef}
+                            data={value}
                         />
                         <CardContent
                             key={value.id}
