@@ -50,12 +50,12 @@ export const PageContent = () => {
             <div className="card">
                 {value ? (
                     <div className="cardContent">
+                        <Icons
+                            reference={iconRef}
+                        />
                         <CardContent
                             key={value.id}
                             data={value}
-                        />
-                        <Icons
-                            reference={iconRef}
                         />
                     </div>
                 ) : (
