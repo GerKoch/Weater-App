@@ -1,6 +1,15 @@
 import "./CardContent.css";
 
 export const CardContent = ({ data }) => {
+    // const handleGustWind = () => {
+    //     if(data.wind.gust){
+    //         <p>Ráfagas de viento: {(data.wind.gust * (1 / 1000) * (3600 / 1)).toFixed(0)}Km/h</p>
+    //     } else {
+    //         <p>Ráfagas de viento: Datos inexistentes</p>
+    //     }
+    // } 
+    // console.log("ger", handleGustWind())
+
     return (
         <div>
             <div className="titleCard">
@@ -8,9 +17,17 @@ export const CardContent = ({ data }) => {
                 <p>Latitud: {data.coord.lat.toFixed(0)}&deg; | Longitud: {data.coord.lon.toFixed(0)}&deg;</p>
             </div>
             <div className="dataCard">
-                <p>{data.main.temp.toFixed(0)}&deg;</p>
-                <p>{data.main.temp_min.toFixed(0)}&deg; | {data.main.temp_max.toFixed(0)}&deg;</p>
-                <p>Sensacion termica: {data.main.feels_like.toFixed(0)}&deg;</p>
+                <div>
+                    <p>Visibillidad: {data.visibility / 1000}Km</p>
+                    <p>Presión: {data.main.pressure}hPa</p>
+                    <p>Humedad: {data.main.humidity}%</p>
+                    <p>Nubosidad: {data.clouds.all}%</p>
+                </div>
+                 <div>
+                    <p>Viento: {(data.wind.speed * (1 / 1000) * (3600 / 1)).toFixed(0)}Km/h</p>
+                    <p>{(data.wind.gust)?(<p>Ráfagas de viento: {(data.wind.gust * (1 / 1000) * (3600 / 1)).toFixed(0)}Km/h</p>):(<p></p>)}</p>
+                    <p>Dirección del Viento: {data.wind.deg}&deg;</p>
+                </div>
             </div>
         </div>
     )
