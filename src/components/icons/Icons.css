@@ -14,6 +14,11 @@
 
 .icon>h2 {
     margin: 0;
+    text-transform: capitalize;
+}
+
+.icon>h3 {
+   font-family: 'Courier New', Courier, monospace;
 }
 
 .text{
