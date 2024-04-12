@@ -5,6 +5,7 @@
 
 .icon {
     background-color: #fff;
+    border-radius: 5px;
 }
 
 .icon>img {

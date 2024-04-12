@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useIconSelect = (ref) => {
     const [icon, setIcon] = useState("")
-  
+    // console.log("ref", ref)
     useEffect(() => {
         switch (ref) {
             case "Thunderstorm":

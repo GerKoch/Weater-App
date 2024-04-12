@@ -8,27 +8,42 @@ export const PageContent = () => {
     const [value, setValue] = useState("");
     const [search, setSearch] = useState("Argentina");
     const [iconRef, setIconRef] = useState("");
+    const [valueFiveDays, setValueFiveDays] = useState("");
+  
+    const apiDay = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+    const apiFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
-    // const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
-    const apyDay = `https://api.openweathermap.org/data/2.5/forecast?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
-
-    const getData = async () => {
-        await fetch(apyDay)
+    const getDataDay = async () => {
+        await fetch(apiDay)
             .then(res => res.json())
             .then(res => {
                 if (res.cod >= 400) {
                     setValue(false)
                 } else {
-                    console.log("gerApi", res)
+                    console.log("Ger ApiDay: ", res)
                     setValue(res)
-                    setIconRef(res.list[0].weather[0].main)
+                    setIconRef(res.weather[0].main)
                 }
             })
             .catch(error => console.log(error))
     }
 
+    const getDataFiveDays = async () => {
+        await fetch(apiFiveDays)
+            .then(resp => resp.json())
+            .then(resp => {
+                console.log("Ger ApyFiveDays: ", resp)
+                setValueFiveDays(resp)
+            })
+            .catch(error => console.log(error))
+    }
+
     useEffect(() => {
-        getData()
+        getDataDay()
+    }, [search])
+
+    useEffect(() => {
+        getDataFiveDays()
     }, [search])
 
     const handleSearch = (e) => {
@@ -53,16 +68,20 @@ export const PageContent = () => {
                     <div>
                         <div className="cardContent">
                             <Icons
+                                key={value.dt}
                                 reference={iconRef}
                                 data={value}
                             />
                             <CardContent
                                 key={value.id}
-                                data={value}
+                                data={value} 
                             />
                         </div>
                         <div className="daysCard">
-                            <DaysCard />
+                            <p>Previsión cada 3hs</p>
+                            {/* <DaysCard
+                                dataFiveDays={valueFiveDays}
+                            /> */}
                         </div>
                     </div>
                 ) : (
