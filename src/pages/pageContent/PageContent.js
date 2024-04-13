@@ -9,7 +9,7 @@ export const PageContent = () => {
     const [search, setSearch] = useState("Argentina");
     const [iconRef, setIconRef] = useState("");
     const [valueFiveDays, setValueFiveDays] = useState("");
-  
+
     const apiDay = `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
     const apiFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${search}&lang=es&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
 
@@ -46,6 +46,7 @@ export const PageContent = () => {
         getDataFiveDays()
     }, [search])
 
+    // console.log("serese", valueFiveDays)
     const handleSearch = (e) => {
         if (e.key === "Enter") {
             console.log(e.target.value)
@@ -74,15 +75,18 @@ export const PageContent = () => {
                             />
                             <CardContent
                                 key={value.id}
-                                data={value} 
+                                data={value}
                             />
                         </div>
-                        <div className="daysCard">
-                            <p>Previsión cada 3hs</p>
-                            {/* <DaysCard
-                                dataFiveDays={valueFiveDays}
-                            /> */}
-                        </div>
+                        {valueFiveDays &&
+                            <div className="daysCard">
+                                <p>Previsión cada 3hs</p>
+                                <DaysCard
+                                    dataFiveDays={valueFiveDays}
+                                />
+                            </div>
+                        }
+
                     </div>
                 ) : (
                     <p>{"City not found"}</p>
