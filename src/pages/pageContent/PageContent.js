@@ -66,7 +66,7 @@ export const PageContent = () => {
             </div>
             <div className="card">
                 {value ? (
-                    <div>
+                    <div className="cardCeneter">
                         <div className="cardContent">
                             <Icons
                                 key={value.dt}
@@ -86,7 +86,6 @@ export const PageContent = () => {
                                 />
                             </div>
                         }
-
                     </div>
                 ) : (
                     <p>{"City not found"}</p>

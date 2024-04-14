@@ -1,30 +1,10 @@
 .daysCards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: start;
     justify-content: space-around;
     border-radius: 5px;
-    padding: 10px;
     width: 100%;
+    height: 300px;
 }
-
-.dayBox {
-    border: 1px solid #c5ddf4;
-    background-color:#f2f4f6;
-    color:black;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-.dayBox>img {
-    width: 50%;
-}
-
-.dayBox>p {
-    margin: 1%;
-}
+ 

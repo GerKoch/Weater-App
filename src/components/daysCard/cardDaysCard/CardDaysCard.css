@@ -1,0 +1,23 @@
+.dayBox {
+    border: 1px solid #c5ddf4;
+    background-color:#e1ebf5;
+    color:black;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    width: 100px;
+    height: 130px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dayBox>img {
+    width: 70%;
+}
+
+.dayBox>p {
+    margin: 2%;
+    font-weight: lighter;
+    font-size: small;
+}

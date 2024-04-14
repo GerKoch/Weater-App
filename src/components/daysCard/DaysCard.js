@@ -6,7 +6,7 @@ export const DaysCard = ({ dataFiveDays }) => {
         <div className="daysCards">
             {
                 dataFiveDays.list.map((dataDays, index) => {
-                    if (index >= 0 && index < 5) {
+                    if (index >= 0 && index < 7) {
                         return <CardDaysCard data={dataDays} />
                     }
                 })
