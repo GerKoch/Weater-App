@@ -3,7 +3,7 @@ import "./CardContent.css";
 export const CardContent = ({ data }) => {
 
     return (
-        <div className="InfoCard">
+        <div className="infoCard">
             <div className="titleCard">
                 <h2>El tiempo en {data.name}</h2>
                 <p>Latitud: {data.coord.lat.toFixed(0)}&deg; | Longitud: {data.coord.lon.toFixed(0)}&deg;</p>

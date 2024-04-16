@@ -41,6 +41,7 @@ input:focus {
 .cardContent {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     background-color: #fff;
     border-radius: 5px;
     margin: 5px 5px;
@@ -57,11 +58,17 @@ input:focus {
     border-radius: 5px;
     margin: 5px 5px;
     margin-top: 10px;
-    width: 100%;
+    width: 99%;
     height: 200px;    
 }
 
 .daysCard>p {
     font-weight: bold;
     margin: 10px;
+}
+
+.cardCenter {
+    display: flex;
+    flex-direction: column;
+    width: 99%;
 }

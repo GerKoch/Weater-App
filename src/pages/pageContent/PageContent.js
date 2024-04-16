@@ -46,7 +46,6 @@ export const PageContent = () => {
         getDataFiveDays()
     }, [search])
 
-    // console.log("serese", valueFiveDays)
     const handleSearch = (e) => {
         if (e.key === "Enter") {
             console.log(e.target.value)
@@ -66,7 +65,7 @@ export const PageContent = () => {
             </div>
             <div className="card">
                 {value ? (
-                    <div className="cardCeneter">
+                    <div className="cardCenter">
                         <div className="cardContent">
                             <Icons
                                 key={value.dt}
